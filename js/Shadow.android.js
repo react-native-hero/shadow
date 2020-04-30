@@ -51,8 +51,8 @@ class Shadow extends PureComponent {
         shadowRadius={shadowRadius}
         {...props}
         style={{
-          width,
-          height,
+          width: width + left + right,
+          height: height + top + bottom,
         }}
       />
     )
@@ -67,8 +67,8 @@ class Shadow extends PureComponent {
         <View
           style={{
             position: 'absolute',
-            width: width - left - right,
-            height: height - top - bottom,
+            width,
+            height,
             top,
             left,
           }}

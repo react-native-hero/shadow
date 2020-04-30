@@ -46,14 +46,14 @@ export default class Shadow extends PureComponent {
     return (
       <View
         style={{
-          width,
-          height,
+          width: width + left + right,
+          height: height + top + bottom,
         }}
       >
         <View
           style={{
-            width: width - left - right,
-            height: height - top - bottom,
+            width,
+            height,
             marginTop: top,
             marginLeft: left,
             shadowRadius,
