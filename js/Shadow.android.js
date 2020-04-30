@@ -13,8 +13,8 @@ class Shadow extends PureComponent {
   static propTypes = {
     width: PropTypes.number.isRequired,
     height: PropTypes.number.isRequired,
-    backgroundColor: PropTypes.string.isRequired,
-    borderRadius: PropTypes.number.isRequired,
+    backgroundColor: PropTypes.string,
+    borderRadius: PropTypes.number,
     shadowColor: PropTypes.string.isRequired,
     shadowOffsetX: PropTypes.number.isRequired,
     shadowOffsetY: PropTypes.number.isRequired,

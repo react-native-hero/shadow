@@ -10,7 +10,7 @@ class ShadowView(private val reactContext: ThemedReactContext) : View(reactConte
         reactContext.resources.displayMetrics.density
     }
 
-    var bgColor = Color.WHITE
+    var bgColor = Color.TRANSPARENT
 
         set(value) {
             if (field == value) {
@@ -60,7 +60,7 @@ class ShadowView(private val reactContext: ThemedReactContext) : View(reactConte
             applyShadow()
         }
 
-    var shadowRadius = 1
+    var shadowRadius = 0
 
         set(value) {
             if (field == value) {

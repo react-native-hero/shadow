@@ -22,7 +22,7 @@ class RNTShadowManager(private val reactAppContext: ReactApplicationContext) : S
 
     @ReactProp(name = "borderRadius")
     fun setBorderRadius(view: ShadowView, borderRadius: Int) {
-        view.borderRadius
+        view.borderRadius = borderRadius
     }
 
     @ReactProp(name = "shadowColor", customType = "Color")
