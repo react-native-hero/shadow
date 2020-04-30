@@ -4,6 +4,7 @@ import React, {
 
 import {
   View,
+  ViewPropTypes,
 } from 'react-native'
 
 import PropTypes from 'prop-types'
@@ -13,12 +14,13 @@ export default class Shadow extends PureComponent {
   static propTypes = {
     width: PropTypes.number.isRequired,
     height: PropTypes.number.isRequired,
+    shadowColor: PropTypes.string.isRequired,
+    shadowRadius: PropTypes.number.isRequired,
+    shadowOffsetX: PropTypes.number,
+    shadowOffsetY: PropTypes.number,
     backgroundColor: PropTypes.string,
     borderRadius: PropTypes.number,
-    shadowColor: PropTypes.string.isRequired,
-    shadowOffsetX: PropTypes.number.isRequired,
-    shadowOffsetY: PropTypes.number.isRequired,
-    shadowRadius: PropTypes.number.isRequired,
+    style: ViewPropTypes.style,
   }
 
   static defaultProps = {
@@ -35,6 +37,7 @@ export default class Shadow extends PureComponent {
       shadowOffsetY,
       shadowRadius,
       children,
+      style,
       ...props
     } = this.props
 
@@ -42,6 +45,24 @@ export default class Shadow extends PureComponent {
     let right = shadowRadius + shadowOffsetX
     let bottom = shadowRadius + shadowOffsetY
     let left = shadowRadius - shadowOffsetX
+
+    let viewStyle = {
+      width,
+      height,
+      marginTop: top,
+      marginLeft: left,
+      shadowRadius,
+      shadowOpacity: 1,
+      shadowOffset: {
+        width: shadowOffsetX,
+        height: shadowOffsetY,
+      },
+      ...props,
+    }
+
+    if (style) {
+      viewStyle = [viewStyle, style]
+    }
 
     return (
       <View
@@ -51,19 +72,7 @@ export default class Shadow extends PureComponent {
         }}
       >
         <View
-          style={{
-            width,
-            height,
-            marginTop: top,
-            marginLeft: left,
-            shadowRadius,
-            shadowOpacity: 1,
-            shadowOffset: {
-              width: shadowOffsetX,
-              height: shadowOffsetY,
-            },
-            ...props,
-          }}
+          style={viewStyle}
         >
           {children}
         </View>

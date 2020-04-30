@@ -4,6 +4,7 @@ import React, {
 
 import {
   View,
+  ViewStyle,
   requireNativeComponent,
 } from 'react-native'
 
@@ -36,6 +37,7 @@ class Shadow extends PureComponent {
       shadowOffsetY,
       shadowRadius,
       children,
+      style,
       ...props
     } = this.props
 
@@ -61,17 +63,23 @@ class Shadow extends PureComponent {
       return shadow
     }
 
+    let viewStyle = {
+      position: 'absolute',
+      width,
+      height,
+      top,
+      left,
+    }
+
+    if (style) {
+      viewStyle = [viewStyle, style]
+    }
+
     return (
       <View>
         {shadow}
         <View
-          style={{
-            position: 'absolute',
-            width,
-            height,
-            top,
-            left,
-          }}
+          style={viewStyle}
         >
           {children}
         </View>

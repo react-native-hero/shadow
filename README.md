@@ -45,6 +45,10 @@ import {
   shadowOffsetY={0}
   borderRadius={0}
   backgroundColor="transparent"
+  style={{
+    borderWidth: 1,
+    borderColor: '#ddd',
+  }}
 >
   <Text>
     children
