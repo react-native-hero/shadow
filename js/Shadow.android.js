@@ -4,7 +4,7 @@ import React, {
 
 import {
   View,
-  ViewStyle,
+  ViewPropTypes,
   requireNativeComponent,
 } from 'react-native'
 
@@ -15,12 +15,13 @@ class Shadow extends PureComponent {
   static propTypes = {
     width: PropTypes.number.isRequired,
     height: PropTypes.number.isRequired,
+    shadowColor: PropTypes.string.isRequired,
+    shadowRadius: PropTypes.number.isRequired,
+    shadowOffsetX: PropTypes.number,
+    shadowOffsetY: PropTypes.number,
     backgroundColor: PropTypes.string,
     borderRadius: PropTypes.number,
-    shadowColor: PropTypes.string.isRequired,
-    shadowOffsetX: PropTypes.number.isRequired,
-    shadowOffsetY: PropTypes.number.isRequired,
-    shadowRadius: PropTypes.number.isRequired,
+    style: ViewPropTypes.style,
   }
 
   static defaultProps = {
