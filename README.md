@@ -45,5 +45,9 @@ import {
   shadowOffsetY={0}
   borderRadius={0}
   backgroundColor="transparent"
-/>
+>
+  <Text>
+    children
+  </Text>
+</Shadow>
 ```

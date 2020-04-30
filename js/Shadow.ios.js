@@ -34,6 +34,7 @@ export default class Shadow extends PureComponent {
       shadowOffsetX,
       shadowOffsetY,
       shadowRadius,
+      children,
       ...props
     } = this.props
 
@@ -63,7 +64,9 @@ export default class Shadow extends PureComponent {
             },
             ...props,
           }}
-        />
+        >
+          {children}
+        </View>
       </View>
     )
 

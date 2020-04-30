@@ -3,6 +3,7 @@ import React, {
 } from 'react'
 
 import {
+  View,
   requireNativeComponent,
 } from 'react-native'
 
@@ -21,22 +22,60 @@ class Shadow extends PureComponent {
     shadowRadius: PropTypes.number.isRequired,
   }
 
+  static defaultProps = {
+    shadowOffsetX: 0,
+    shadowOffsetY: 0,
+  }
+
   render() {
 
     let {
       width,
       height,
+      shadowOffsetX,
+      shadowOffsetY,
+      shadowRadius,
+      children,
       ...props
     } = this.props
 
-    return (
+    let top = shadowRadius - shadowOffsetY
+    let right = shadowRadius + shadowOffsetX
+    let bottom = shadowRadius + shadowOffsetY
+    let left = shadowRadius - shadowOffsetX
+
+    let shadow = (
       <RNTShadow
+        shadowOffsetX={shadowOffsetX}
+        shadowOffsetY={shadowOffsetY}
+        shadowRadius={shadowRadius}
         {...props}
         style={{
           width,
           height,
         }}
       />
+    )
+
+    if (!children) {
+      return shadow
+    }
+
+    return (
+      <View>
+        {shadow}
+        <View
+          style={{
+            position: 'absolute',
+            width: width - left - right,
+            height: height - top - bottom,
+            top,
+            left,
+          }}
+        >
+          {children}
+        </View>
+      </View>
     )
 
   }
