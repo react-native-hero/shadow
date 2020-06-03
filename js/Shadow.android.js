@@ -72,6 +72,10 @@ class Shadow extends PureComponent {
       left,
     }
 
+    if (props.borderRadius > 0) {
+      viewStyle.borderRadius = props.borderRadius
+    }
+
     if (style) {
       viewStyle = [viewStyle, style]
     }
