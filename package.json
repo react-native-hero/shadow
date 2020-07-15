@@ -1,6 +1,6 @@
 {
   "name": "@react-native-hero/shadow",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "react native shadow",
   "main": "index.js",
   "scripts": {

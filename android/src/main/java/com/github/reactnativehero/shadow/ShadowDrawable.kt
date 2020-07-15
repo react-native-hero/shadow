@@ -52,7 +52,7 @@ class ShadowDrawable private constructor(private val bgColor: Int, shapeRadius: 
         mShadowPaint.alpha = alpha
     }
 
-    override fun setColorFilter(colorFilter: ColorFilter) {
+    override fun setColorFilter(colorFilter: ColorFilter?) {
         mShadowPaint.colorFilter = colorFilter
     }
 
