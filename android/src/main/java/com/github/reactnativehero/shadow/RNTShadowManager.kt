@@ -26,7 +26,7 @@ class RNTShadowManager(private val reactAppContext: ReactApplicationContext) : S
     }
 
     @ReactProp(name = "shadowColor", customType = "Color")
-    fun setShadowColor(view: ShadowView, shadowColor: Int) {
+    fun setShadowColor1(view: ShadowView, shadowColor: Int) {
         view.shadowColor = shadowColor
     }
 
